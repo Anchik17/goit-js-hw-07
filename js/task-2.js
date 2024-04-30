@@ -1,3 +1,4 @@
+const gallery = document.querySelector('.gallery');
 const images = [
   {
     url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
@@ -24,3 +25,21 @@ const images = [
     alt: "Lighthouse Coast Sea",
   }
 ];
+
+
+const galleryHTML = `
+  ${images.map(image => `
+    <li class="gallery-item">
+      <img src="${image.url}" alt="${image.alt}">
+    </li>
+  `).join("")}
+`;
+
+gallery.insertAdjacentHTML('beforeend', galleryHTML);
+
+
+gallery.classList.add('gallery');
+const galleryItems = gallery.querySelectorAll('.gallery-item');
+galleryItems.forEach(item => item.classList.add('gallery-item'));
+
+
